@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+		
+	<!-- PROCESSORS -->
+	
+	<bean id="completedTransactionProcessor" class="jjdevine.epos.processors.impl.CompletedTransactionProcessorImpl">
+		<property name="creditNoteDataService" ref="creditNoteDataService"/>
+		<property name="transactionDataService" ref="transactionDataService"/>
+	</bean>
+
+	<bean id="addCustomerProcessor" class="jjdevine.epos.processors.impl.AddCustomerProcessorImpl"/>
+	
+	<bean id="editCustomerProcessor" class="jjdevine.epos.processors.impl.EditCustomerProcessorImpl">
+		<property name="customerDataService" ref="customerDao"/>
+	</bean>
+	
+	<bean id="createReceiptSetupProcessor" class="jjdevine.epos.processors.impl.CreateReceiptSetupProcessorImpl">
+		<property name="receiptSetupDataService" ref="receiptDao"/>
+		<property name="printPreviewService" ref="printPreviewService"/>
+	</bean>
+	
+	<bean id="receiptPrintingProcessor" class="jjdevine.epos.processors.impl.ReceiptPrintingProcessorImpl">
+		<property name="printingService" ref="printService"/>
+		<!-- <property name="printingService" ref="printPreviewService"/> --> 
+	</bean>
+	
+	<bean id="createDiscountDefinitionProcessor" class="jjdevine.epos.processors.impl.CreateDiscountDefinitionProcessorImpl">
+		<property name="discountDefinitionDataService" ref="discountDao"/>
+	</bean>
+	
+	<bean id="createDiscountPolicyProcessor" class="jjdevine.epos.processors.impl.CreateDiscountPolicyProcessorImpl">
+		<property name="discountDefinitionDataService" ref="discountDao"/>
+	</bean>
+	
+	<bean id="issueCreditNoteProcessor" class="jjdevine.epos.processors.impl.IssueCreditNoteProcessorImpl">
+		<property name="creditNoteDataService" ref="creditNoteDataService"/>
+		<property name="printingService" ref="printService"/>  
+		<!-- <property name="printingService" ref="printPreviewService"/>-->
+	</bean>
+	
+	<bean id="showEODReportProcessor" class="jjdevine.epos.processors.impl.ShowEODReportProcessorImpl">
+		<property name="transactionDataService" ref="transactionDataService"/>
+		<property name="creditNoteDataService" ref="creditNoteDataService"/>
+		<property name="csvService" ref="csvService"/>
+	</bean>
+	
+	<bean id="showPriceHistoryReportProcessor" class="jjdevine.epos.processors.impl.ShowPriceHistoryReportProcessorImpl">
+		<property name="garmentDataService" ref="garmentDataService"/>
+		<property name="csvService" ref="csvService"/>
+	</bean>
+	
+	<bean id="showGarmentSalesProcessor" class="jjdevine.epos.processors.impl.ShowGarmentSalesProcessorImpl">
+		<property name="eposCommonDatasource" ref="commonDatasource"/>
+		<property name="garmentDataService" ref="garmentDataService"/>
+		<property name="transactionDataService" ref="transactionDataService"/>
+		<property name="transactionDetailsReportProcessor" ref="showTransactionDetailsReportProcessor"/>
+		<property name="csvService" ref="csvService"/>
+	</bean>
+	
+	<bean id="showCreditNoteReportProcessor" class="jjdevine.epos.processors.impl.ShowCreditNoteReportProcessorImpl">
+		<property name="creditNoteDataService" ref="creditNoteDataService"/>
+		<property name="csvService" ref="csvService"/>
+	</bean>
+	
+	<bean id="showTransactionDetailsReportProcessor" class="jjdevine.epos.processors.impl.ShowTransactionDetailsReportProcessorImpl">
+		<property name="transactionDataService" ref="transactionDataService"/>
+		<property name="discountDefinitionDataService" ref="discountDao"/>
+		<property name="csvService" ref="csvService"/>
+	</bean>
+	
+	<bean id="showTransactionSummaryReportProcessor" class="jjdevine.epos.processors.impl.ShowTransactionSummaryReportProcessorImpl">
+		<property name="transactionDataService" ref="transactionDataService"/>
+		<property name="customerDataService" ref="customerDao"/>
+		<property name="transactionDetailsReportProcessor" ref="showTransactionDetailsReportProcessor"/>
+		<property name="csvService" ref="csvService"/>
+	</bean>
+	
+	<bean id="showStockReportProcessor" class="jjdevine.epos.processors.impl.ShowStockReportProcessorImpl">
+		<property name="garmentDataService" ref="garmentDataService"/>
+		<property name="manageOrderDatasource" ref="manageOrderDatasource"/>
+		<property name="eposCommonDatasource" ref="commonDatasource"/>
+		<property name="csvService" ref="csvService"/>
+	</bean>
+	
+	<bean id="showStockAdjustmentReportProcessor" class="jjdevine.epos.processors.impl.ShowStockAdjustmentReportProcessorImpl">
+		<property name="garmentDataService" ref="garmentDataService"/>
+		<property name="csvService" ref="csvService"/>
+	</bean>
+	
+	<bean id="showOrdersReportProcessor" class="jjdevine.epos.processors.impl.ShowOrdersReportProcessorImpl">
+		<property name="ordersReportingDataService" ref="ordersReportingDataService"/>
+		<property name="csvService" ref="csvService"/>
+	</bean>
+	
+	<bean id="createUserProcessor" class="jjdevine.epos.processors.impl.CreateUserProcessorImpl">
+		<property name="userManagementDataService" ref="userManagementDataService"/>
+	</bean>
+	
+	<bean id="editUserProcessor" class="jjdevine.epos.processors.impl.EditUserProcessorImpl">
+		<property name="userManagementDataService" ref="userManagementDataService"/>
+	</bean>
+	
+	<bean id="editPreferencesProcessor" class="jjdevine.epos.processors.impl.EditPreferencesProcessorImpl">
+		<property name="receiptSetupDataService" ref="receiptDao"/>
+		<property name="preferencesDataService" ref="preferencesDao"/>
+	</bean>
+		
+	<bean id="stockAdjustmentProcessor" class="jjdevine.epos.processors.impl.StockAdjustmentProcessorImpl">
+		<property name="garmentDataService" ref="garmentDataService"/>
+	</bean>
+</beans>

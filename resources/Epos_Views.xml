@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+		
+	<!-- VIEWS -->
+	
+	<bean id="customerInfoView" class="jjdevine.epos.customerinfo.view.gui.CustomerInfoViewImpl" 
+		scope="prototype"/>
+		
+	<bean id="receiptSetupView" class="jjdevine.epos.receiptsetup.view.gui.ReceiptSetupViewImpl" 
+		scope="prototype"/>
+		
+	<bean id="discountDefinitionView" class="jjdevine.epos.discountdefinition.view.gui.DiscountDefinitionViewImpl" 
+		scope="prototype">
+		<property name="eposCommonDatasource" ref="commonDatasource"/>
+	</bean>	
+		
+	<bean id="discountPolicyView" class="jjdevine.epos.discountdefinition.view.gui.DiscountPolicyDefinitionViewImpl" 
+		scope="prototype"/>
+		
+	<bean id="customerSearchView" class="jjdevine.epos.customersearch.view.gui.CustomerSearchViewImpl" 
+		scope="prototype">
+		<property name="selectExistingValueService" ref="selectExistingValueService"/>
+	</bean>
+	
+	<bean id="creditNoteView" class="jjdevine.epos.creditnote.view.gui.CreditNoteViewImpl" scope="prototype"/>
+	
+	<bean id="reportsSelectionMenu" class="jjdevine.epos.guiImpl.ReportsSelectionMenu" scope="prototype">
+		<property name="showEODReportProcessor" ref="showEODReportProcessor"/>
+		<property name="showPriceHistoryReportProcessor" ref="showPriceHistoryReportProcessor"/>
+		<property name="showGarmentSalesProcessor" ref="showGarmentSalesProcessor"/>
+		<property name="showCreditNoteReportProcessor" ref="showCreditNoteReportProcessor"/>
+		<property name="showTransactionSummaryReportProcessor" ref="showTransactionSummaryReportProcessor"/>
+		<property name="showTransactionDetailsReportProcessor" ref="showTransactionDetailsReportProcessor"/>
+		<property name="customerSearchMediator" ref="customerSearchMediator"/>
+		<property name="showStockReportProcessor" ref="showStockReportProcessor"/>
+		<property name="showStockAdjustmentReportProcessor" ref="showStockAdjustmentReportProcessor"/>
+		<property name="showOrdersReportProcessor" ref="showOrdersReportProcessor"/>
+	</bean>
+	
+	<bean id="endOfDayReportView" class="jjdevine.epos.reports.endofday.view.gui.EndOfDayReportViewImpl"
+		scope="prototype"/>
+		
+	<bean id="priceHistoryReportView" class="jjdevine.epos.reports.pricehistory.view.gui.PriceHistoryReportViewImpl" 
+		scope="prototype"/>
+		
+	<bean id="genericReportTemplate1View" class="jjdevine.epos.reports.genericreporttemplate1.view.gui.GenericReportTemplateView1Impl"
+		scope="prototype"/>
+		
+	<bean id="transactionDetailsReportView" class="jjdevine.epos.reports.transactiondetails.view.gui.TransactionDetailsReportViewImpl"
+		scope="prototype"/>
+		
+	<bean id="userManagementView" class="jjdevine.epos.usermanagement.view.gui.UserManagementViewImpl"
+		scope="prototype"/>
+		
+	<bean id="preferencesView" class="jjdevine.epos.preferences.view.gui.PreferencesViewImpl"
+		scope="prototype"/>
+		
+	<bean id="stockAdjustmentView" class="jjdevine.epos.view.stockadjustment.gui.StockAdjustmentViewImpl"
+		scope="prototype"/>
+		
+</beans>

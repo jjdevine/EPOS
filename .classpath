@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/EPOS Common Library"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/EPOS_AuthenticationService"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Garments_DefineNewGarmentService"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Garments_SearchSKUCodeService"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Orders_CreateOrderService"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Garments_EditGarmentService"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Orders_ManageOrderService"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Garments_SearchGarmentCodeService"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/EPOS_SelectExistingValueService"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Payments_ProcessPaymentService"/>
+	<classpathentry kind="lib" path="C:/JJs Stuff/Java/spring-framework-2.0.8/spring-framework-2.0.8/dist/spring.jar"/>
+	<classpathentry kind="lib" path="C:/JJs Stuff/Java/commons-logging-1.1.1-bin/commons-logging-1.1.1/commons-logging-1.1.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Customer_Info_View"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Customer_Info_Data_Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Window_Management_Registry"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Preferences_Data_Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Receipt_Setup_Data_Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Receipt_Setup_View"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Printing Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Discount_Definition_Data_Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Discount_Definition_View"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/EPOS_Model"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Customer_Search_View"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Credit_Note_Data_Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Credit_Note_View"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Transaction_Data_Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Reports_EndOfDay_View"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Orders_Common"/>
+	<classpathentry kind="lib" path="C:/JJs Stuff/Java/apache-log4j-1.2.16/log4j-1.2.16.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Config"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CSV_Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Garment_Data_Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Reports_Price_History"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Generic_Report_Template_1"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/User_Management_View"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/User_Management_Data_Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Reports_TransactionDetails_View"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Preferences_View"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Orders_Reporting_Data_Service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Stock_Adjustment_View"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

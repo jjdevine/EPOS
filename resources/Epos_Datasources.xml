@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+		
+	<!-- DATASOURCE -->
+	
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>file:///C:/EPOS/Epos.ini</value>
+		</property>
+	</bean>
+	
+	
+	
+	<!-- TODO: need to use property placeholder to get datasource URL -->
+	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		 <property name="driverClassName" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
+		 <property name="url" value="jdbc:odbc:${datasourceUrl}"/>	 
+	</bean>
+	
+	<bean id="customerDao" class="jjdevine.epos.customerinfo.data.svc.impl.CustomerDataServiceImpl">
+		<property name="dataSource" ref="datasource"/>
+	</bean>
+	
+	<bean id="receiptDao" class="jjdevine.epos.receiptsetup.data.svc.impl.ReceiptSetupDataServiceImpl">
+		<property name="dataSource" ref="datasource"/>
+	</bean>
+	
+	<bean id="preferencesDao" class="jjdevine.epos.preferences.data.svc.impl.PreferencesDataServiceImpl">
+		<property name="dataSource" ref="datasource"/>
+	</bean>
+	
+	<bean id="discountDao" class="jjdevine.epos.discountdefintion.data.svc.impl.DiscountDefinitionDataServiceImpl">
+		<property name="dataSource" ref="datasource"/>
+	</bean>
+	
+	<bean id="creditNoteDataService" class="jjdevine.epos.creditnote.data.svc.impl.CreditNoteDataServiceImpl">
+		<property name="dataSource" ref="datasource"/>
+	</bean>
+	
+	<bean id="garmentDataService" class="jjdevine.epos.garment.data.svc.impl.GarmentDataServiceImpl">
+		<property name="dataSource" ref="datasource"/>
+	</bean>
+	
+	<bean id="ordersReportingDataService" class="jjdevine.epos.ordersreporting.data.svc.impl.OrdersReportingDataServiceImpl">
+		<property name="dataSource" ref="datasource"/>
+	</bean>
+	
+	<bean id="transactionDataService" class="jjdevine.epos.transaction.data.svc.impl.TransactionDataServiceImpl">
+		<property name="dataSource" ref="datasource"/>
+		<property name="creditNoteDataService" ref="creditNoteDataService"/>
+		<property name="garmentDataService" ref="garmentDataService"/>
+		<property name="customerDataService" ref="customerDao"/>
+		<property name="discountDefinitionDataService" ref="discountDao"/>
+	</bean>
+	
+	<bean id="commonDatasource" class="jjdevine.epos.common.persistence.EposCommonDAO"/>
+	
+	<bean id="manageOrderDatasource" class="jjdevine.epos.services.manageorder.persistence.ManageOrderDAO"/>
+	
+	<bean id="userManagementDataService" class="jjdevine.epos.usermanagement.data.svc.impl.UserManagementDataServiceImpl">
+		<property name="dataSource" ref="datasource"/>
+	</bean>
+		
+</beans>
